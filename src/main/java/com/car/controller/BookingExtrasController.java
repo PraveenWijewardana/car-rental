@@ -5,6 +5,8 @@ import com.car.service.BookingExtrasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/bookingExtras")
 @RequiredArgsConstructor
@@ -13,32 +15,32 @@ public class BookingExtrasController {
     final BookingExtrasService bookingExtrasService;
 
     @PostMapping("/add")
-    public void addBookingExtras(BookingExtrasDTO bookingExtras) {
+    public void addBookingExtras(@RequestBody BookingExtrasDTO bookingExtras) {
         bookingExtrasService.addBookingExtras(bookingExtras);
     }
 
     @PostMapping("/update")
-    public void updateBookingExtras(BookingExtrasDTO bookingExtras) {
+    public void updateBookingExtras(@RequestBody BookingExtrasDTO bookingExtras) {
         bookingExtrasService.updateBookingExtras(bookingExtras);
     }
 
-    @DeleteMapping("/delet")
-    public void deleteBookingExtras(Integer id) {
+    @DeleteMapping("/delet/{id}")
+    public void deleteBookingExtras(@PathVariable Integer id) {
         bookingExtrasService.deleteBookingExtras(id);
     }
 
     @GetMapping("/search-booking-id/{id}")
-    public void searchByBookingId(Integer id) {
-        bookingExtrasService.findByBookingId(id);
+    public BookingExtrasDTO searchByBookingId(@PathVariable Integer id) {
+        return bookingExtrasService.findByBookingId(id);
     }
 
     @GetMapping("/search-service-id/{id}")
-    public void searchByServiceId(Integer id) {
-        bookingExtrasService.findByServiceId(id);
+    public BookingExtrasDTO searchByServiceId(@PathVariable Integer id) {
+        return bookingExtrasService.findByServiceId(id);
     }
 
     @GetMapping("/get-all-extras")
-    public void getAll(){
-        bookingExtrasService.getAll();
+    public List<BookingExtrasDTO> getAll(){
+        return bookingExtrasService.getAll();
     }
 }

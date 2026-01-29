@@ -1,7 +1,6 @@
 package com.car.service;
 
 import com.car.dto.BookingExtrasDTO;
-import com.car.dto.BookingsDTO;
 
 import java.util.List;
 
