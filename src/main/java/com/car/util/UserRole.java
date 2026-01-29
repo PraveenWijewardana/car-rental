@@ -1,4 +1,5 @@
 package com.car.util;
 
-public class sample {
+public enum UserRole {
+
 }
