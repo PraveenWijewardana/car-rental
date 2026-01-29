@@ -37,7 +37,7 @@ public class UserController {
 
     }
 
-    @PostMapping("/find-by-name")
+    @PostMapping("/find-by-id")
     public UsersDto findById(Integer id) {
         return null;
     }

@@ -6,8 +6,9 @@ import com.car.dto.BookingsDTO;
 import java.util.List;
 
 public interface BookingExtrasService {
-    void addBookingExtras(BookingsDTO bookingDTO);
-    void updateBookingExtras(BookingsDTO bookingDTO);
+
+    void addBookingExtras(BookingExtrasDTO bookingExtras);
+    void updateBookingExtras(BookingExtrasDTO bookingDTO);
     void deleteBookingExtras(Integer id);
     BookingExtrasDTO findByBookingId(Integer id);
     BookingExtrasDTO findByServiceId(Integer id);
