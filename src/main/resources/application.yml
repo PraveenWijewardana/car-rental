@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/CarRentalSystem
+    username: root
+    password: 2701
+
+  jpa:
+    hibernate:
+      ddl-auto: create

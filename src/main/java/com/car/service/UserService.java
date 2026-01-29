@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface UserService {
     void add(UsersDto usersDto);
-    void update(UsersDto usersDto);
+    void update(UsersDto us);
     Boolean login(String un , String pwd);
-    void delete(Integer id);
-    UsersDto findById(Integer id);
+    void delete(String id);
+    UsersDto findById(String id);
     UsersDto findByName(String name);
     List<UsersDto> getAll();
     List<UsersDto> findAllByName(String name);

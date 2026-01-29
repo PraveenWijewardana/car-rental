@@ -4,7 +4,6 @@ import com.car.dto.UsersDto;
 import com.car.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -24,38 +23,38 @@ public class UserController {
         userService.add(usersDto);
     }
 
-    @GetMapping("/login/{un}")
-    public Boolean login(String un, String pwd) {
+    @GetMapping("/login/{un}/{pwd}")
+    public Boolean login(@PathVariable String un,@PathVariable String pwd) {
         return userService.login(un,pwd);
     }
 
-    @DeleteMapping("/delete")
-    public void delete(Integer id) {
-
+    @DeleteMapping("/deleteById/{id}")
+    public void delete(@PathVariable String id) {
+        userService.delete(id);
     }
 
-    @GetMapping("/find-by-name")
-    public UsersDto findById(Integer id) {
-        return null;
+    @GetMapping("/find-by-id/{id}")
+    public UsersDto findById(@PathVariable String  id) {
+        return userService.findById(id);
     }
 
-    @GetMapping("/find-by-name")
-    public UsersDto findByName(String name) {
-        return null;
+    @GetMapping("/find-by-name/{name}")
+    public UsersDto findByName(@PathVariable String name) {
+        return userService.findByName(name);
     }
 
     @GetMapping("/get-all")
     public List<UsersDto> getAll() {
-        return List.of();
+        return userService.getAll();
     }
 
-    @GetMapping("/find-all-by-name")
-    public List<UsersDto> findAllByName(String name) {
-        return List.of();
+    @GetMapping("/find-all-by-name/{name}")
+    public List<UsersDto> findAllByName(@PathVariable String name) {
+        return userService.findAllByName(name);
     }
 
-    @GetMapping("/find-all-by-role")
-    public List<UsersDto> findAllByRole(String role) {
-        return List.of();
+    @GetMapping("/find-all-by-role/{role}")
+    public List<UsersDto> findAllByRole(@PathVariable String role) {
+        return findAllByRole(role);
     }
 }
