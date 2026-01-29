@@ -3,10 +3,7 @@ package com.car.controller;
 import com.car.dto.UsersDto;
 import com.car.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,41 +20,41 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public void update(UsersDto usersDto) {
+    public void update(@RequestBody UsersDto usersDto) {
         userService.add(usersDto);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login/{un}")
     public Boolean login(String un, String pwd) {
         return userService.login(un,pwd);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(Integer id) {
 
     }
 
-    @PostMapping("/find-by-name")
+    @GetMapping("/find-by-name")
     public UsersDto findById(Integer id) {
         return null;
     }
 
-    @PostMapping("/find-by-name")
+    @GetMapping("/find-by-name")
     public UsersDto findByName(String name) {
         return null;
     }
 
-    @PostMapping("/get-all")
+    @GetMapping("/get-all")
     public List<UsersDto> getAll() {
         return List.of();
     }
 
-    @PostMapping("/find-all-by-name")
+    @GetMapping("/find-all-by-name")
     public List<UsersDto> findAllByName(String name) {
         return List.of();
     }
 
-    @PostMapping("/find-all-by-role")
+    @GetMapping("/find-all-by-role")
     public List<UsersDto> findAllByRole(String role) {
         return List.of();
     }
