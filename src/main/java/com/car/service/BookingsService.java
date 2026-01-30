@@ -16,8 +16,12 @@ public interface BookingsService {
     BookingExtrasDTO findByBookingsId(Integer id);
     BookingExtrasDTO findByUserId(Integer id);
     BookingExtrasDTO findByCarId(Integer id);
-    BookingExtrasDTO findByDate(LocalDate date);
-    BookingExtrasDTO findByStatus(BookingStatus bookingStatus);
     List<BookingExtrasDTO> getAll();
+    List<BookingsDTO> getAllBookings();
+    BookingsDTO getBookingById(String bookingId);
+    List<BookingsDTO> getBookingsByUserId(String userId);
+    List<BookingsDTO> getBookingsByCarId(String carId);
+    List<BookingsDTO> getBookingsByStatus(String status);
+    List<BookingsDTO> getBookingsByDate(LocalDate date);
 
 }
