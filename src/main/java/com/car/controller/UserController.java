@@ -3,7 +3,11 @@ package com.car.controller;
 import com.car.dto.UsersDto;
 import com.car.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -16,46 +20,45 @@ public class UserController {
     @PostMapping("/add")
     public void add(@RequestBody UsersDto usersDto) {
         userService.add(usersDto);
-        System.out.println("ty");
     }
 
     @PostMapping("/update")
-    public void update(@RequestBody UsersDto usersDto) {
+    public void update(UsersDto usersDto) {
         userService.add(usersDto);
     }
 
-    @GetMapping("/login/{un}/{pwd}")
-    public Boolean login(@PathVariable String un,@PathVariable String pwd) {
+    @PostMapping("/login")
+    public Boolean login(String un, String pwd) {
         return userService.login(un,pwd);
     }
 
-    @DeleteMapping("/deleteById/{id}")
-    public void delete(@PathVariable String id) {
-        userService.delete(id);
+    @PostMapping("/delete")
+    public void delete(Integer id) {
+
     }
 
-    @GetMapping("/find-by-id/{id}")
-    public UsersDto findById(@PathVariable String  id) {
-        return userService.findById(id);
+    @PostMapping("/find-by-name")
+    public UsersDto findById(Integer id) {
+        return null;
     }
 
-    @GetMapping("/find-by-name/{name}")
-    public UsersDto findByName(@PathVariable String name) {
-        return userService.findByName(name);
+    @PostMapping("/find-by-name")
+    public UsersDto findByName(String name) {
+        return null;
     }
 
-    @GetMapping("/get-all")
+    @PostMapping("/get-all")
     public List<UsersDto> getAll() {
-        return userService.getAll();
+        return List.of();
     }
 
-    @GetMapping("/find-all-by-name/{name}")
-    public List<UsersDto> findAllByName(@PathVariable String name) {
-        return userService.findAllByName(name);
+    @PostMapping("/find-all-by-name")
+    public List<UsersDto> findAllByName(String name) {
+        return List.of();
     }
 
-    @GetMapping("/find-all-by-role/{role}")
-    public List<UsersDto> findAllByRole(@PathVariable String role) {
-        return findAllByRole(role);
+    @PostMapping("/find-all-by-role")
+    public List<UsersDto> findAllByRole(String role) {
+        return List.of();
     }
 }

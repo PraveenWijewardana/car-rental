@@ -1,6 +1,8 @@
 package com.car.entity;
 
 
+import com.car.util.CarTransmission;
+import com.car.util.FuelType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +26,9 @@ public class CarEntity {
     private String brand;
     private String model;
     private String licensePlate;
-    private String fuelType;
+    private FuelType fuelType;
     private Integer seatCapacity;
     private Double pricePerDay;
     private Boolean isActive;
+    private CarTransmission transmission;
 }
