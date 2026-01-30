@@ -20,6 +20,7 @@ public class CarEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String categoryId;
+    private String imgUrl;
     private String brand;
     private String model;
     private String licensePlate;

@@ -16,6 +16,7 @@ public class UserController {
     @PostMapping("/add")
     public void add(@RequestBody UsersDto usersDto) {
         userService.add(usersDto);
+        System.out.println("ty");
     }
 
     @PostMapping("/update")
